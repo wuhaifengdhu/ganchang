@@ -15,6 +15,9 @@ public class TraversalHelper {
         // 有生于无
         collocationList.add(new CollocationImpl(new ArrayList<>(), weather));
         for(int i = 0; i < clothList.size(); i++){
+            if(clothList.get(i).getSupportHighTemperature() < weather.getMinTemp() || clothList.get(i).getSupportLowTemperature() > weather.getMaxTemp()){
+                continue;
+            }
             // 每加一件衣服，里面的数目翻倍
             coTempList = new ArrayList<>(collocationList);
             for(CollocationImpl collocation: coTempList){

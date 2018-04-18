@@ -41,13 +41,12 @@ public class Main {
         clothList.add(new Underwear(10, 26, "长袖"));
         clothList.add(new Sweater(20, 25, "卫衣"));
         List<Rule> ruleList = new ArrayList<>();
-//        ruleList.add(new Rule() { // 基本规则：衣服支持的温度范围必须包含天气的范围
-//            @Override
-//            public boolean pass(Collocation collocation) {
-//                return collocation.getClothSupportMaxTemp() > collocation.getWeatherMaxTemp() &&
-//                        collocation.getClothSupportMinTemp() < collocation.getWeatherMinTemp();
-//            }
-//        });
+        ruleList.add(new Rule() { // 基本规则：不能裸体吧
+            @Override
+            public boolean pass(Collocation collocation) {
+                return collocation.getClothNum() > 0;
+            }
+        });
         ruleList.add(new Rule() { // 规则1：如果穿外套，必须穿打底衫
             @Override
             public boolean pass(Collocation collocation) {
