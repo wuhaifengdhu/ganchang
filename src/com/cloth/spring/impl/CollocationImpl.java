@@ -75,6 +75,10 @@ public class CollocationImpl implements Collocation{
         return innerwearNum;
     }
 
+    public List<Cloth> getClothList() {
+        return clothList;
+    }
+
     @Override
     public float getWeatherMaxTemp() {
         return this.weather.getMaxTemp();
